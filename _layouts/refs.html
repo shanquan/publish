@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "zh-cn" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <style>
+    main.main-content{float:left;width:75%}
+    aside{float:left;width:25%}
+    h3.color{color:#159957}
+    </style>
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title }}</h1>
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+    </main>
+    <aside>
+        <h3 class="color">posts</h3>
+        <ul>
+          {% for post in site.posts %}
+            <li>
+                {{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <h3 class="color">collections</h3>
+        {% for category in site.categories %}
+          <h3>{{ category[0] }}</h3>
+          <ul>
+            {% for post in category[1] %}
+              <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+        <h3 class="color">tags</h3>
+        {% for tag in site.tags %}
+          <h3>{{ tag[0] }}</h3>
+          <ul>
+            {% for post in tag[1] %}
+              <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+    </aside>
+    <!-- link: /2019/10/22/Welcome-to-Jekyll , and titles don't support space(welcome to jekyll) 
+    or pls ref: <https://jekyllrb.com/docs/liquid/tags/#linking-to-posts>
+    -->
+  </body>
+</html>
