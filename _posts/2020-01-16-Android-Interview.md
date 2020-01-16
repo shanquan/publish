@@ -134,7 +134,9 @@ tags: [byd]
    ```
 3. 熟悉哪些设计模式
    > 工厂模式`Factory`、单例模式`Singleton`、建造者模式`Builder`
+   
    - A: Factory
+  
    ```java
     public interface Sender {  
       public void Send();  
@@ -175,7 +177,9 @@ tags: [byd]
       }  
     }
    ```
+
    - B: Singleton
+
    ```java
     class Teacher {
       private Teacher() {}
@@ -198,7 +202,9 @@ tags: [byd]
       }
     }
    ```
+
    - C: Builder
+
    ```java
     public class Builder {
       static class Student{
@@ -255,6 +261,7 @@ tags: [byd]
       }
     }
    ```
+
 4. 排序算法
    > 冒泡排序`BubbleSort`，选择排序`SelectSort`，插入排序`InsertSort` : `O(n2)`，快速排序`QuickSort` : `O(N*logN)`
    - A: BubbleSort
@@ -341,8 +348,7 @@ tags: [byd]
    - [ ] Intent
    - [X] ContentProvider
    - [ ] View
-  > Activity,Service,BroadcastReceiver,ContentProvider
-7. 一个安卓界面即为一个`?`
+6. 一个安卓界面即为一个`?`
   > Activity
 8. `?`负责后台任务的运行
   > Service
@@ -362,7 +368,6 @@ tags: [byd]
     - [ ] AbsoluteLayout
     - [ ] PositionLayout
     - [X] ConstraintLayout
-  > Activity
 13. 接口数据一般采用`?`（数据格式）
   > XML/JSON
 14. JSON解析用`?`（包名或库名）
@@ -373,18 +378,20 @@ tags: [byd]
   > Glide、Picasso、Fresco、Universal-Image-Loader
 17. 网络框架有哪些`?`他们之间的区别是什么？
   > Xutils、OKhttp、Volley、Retrofit<br>
-  Xutils<br>
+  **Xutils**<br>
   这个框架非常全面，可以进行网络请求，可以进行图片加载处理，可以数据储存，还可以对view进行注解，使用这个框架非常方便，但是缺点也是非常明显的，使用这个项目，会导致项目对这个框架依赖非常的严重，一旦这个框架出现问题，那么对项目来说影响非常大的<br>
-  OKhttp<br>
+  **OKhttp**<br>
   Android开发中是可以直接使用现成的api进行网络请求的。就是使用HttpClient,HttpUrlConnection进行操作。okhttp针对Java和Android程序，封装的一个高性能的http请求库，支持同步，异步，而且okhttp又封装了线程池，封装了数据转换，封装了参数的使用，错误处理等。API使用起来更加的方便。但是我们在项目中使用的时候仍然需要自己在做一层封装，这样才能使用的更加的顺手。<br>
-  Volley<br>
+  **Volley**<br>
   Volley是Google官方出的一套小而巧的异步请求库，该框架封装的扩展性很强，支持HttpClient、HttpUrlConnection， 甚至支持OkHttp，而且Volley里面也封装了ImageLoader，所以如果你愿意你甚至不需要使用图片加载框架，不过这块功能没有一些专门的图片加载框架强大，对于简单的需求可以使用，稍复杂点的需求还是需要用到专门的图片加载框架。Volley也有缺陷，比如不支持post大数据，所以不适合上传文件。不过Volley设计的初衷本身也就是为频繁的、数据量小的网络请求而生。<br>
-  Retrofit<br>
+  **Retrofit**<br>
   Retrofit是Square公司出品的默认基于OkHttp封装的一套RESTful网络请求框架，RESTful是目前流行的一套api设计的风格， 并不是标准。Retrofit的封装可以说是很强大，里面涉及到一堆的设计模式,可以通过注解直接配置请求，可以使用不同的http客户端，虽然默认是用http ，可以使用不同Json Converter 来序列化数据，同时提供对RxJava的支持，使用Retrofit + OkHttp + RxJava + Dagger2 可以说是目前比较潮的一套框架，但是需要有比较高的门槛。
 18. Http请求中包含哪些内容？，上传文件和发起请求的post请求的区别？
   > request请求数据包含:url,method(Get,POST,PUT,PATCH,DELETE),header,param,query<br>
   response响应数据包含:header(content-type),body<br>
-  区别在于requestHeader的content-type和requestbody不同
+  区别在于requestHeader的content-type和requestbody不同:<br>
+  上传文件的post请求，header的`content-type`为`multipart/form-data`；requestbody为`FormData`数据<br>
+  发起请求的post，header的`content-type`为`application/x-www-form-urlencoded`；requestbody为`key1=value1&key2=value2`数据
 19. Android异步消息处理机制？
   > 异步消息处理机制主要是用来解决子线程更新UI的问题<br>
     主要有四个部分：<br>
@@ -400,7 +407,7 @@ tags: [byd]
     ④. Looper （循环器）<br>
     调用loop（）方法后，会不断从MessageQueue 取出待处理的消息，然后传递到handleMessage进行处理
 20. ANR是什么？怎样避免和解决ANR？
-  > Application Not Responding<br>
+  > **Application Not Responding**<br>
     避免ANR最核心的一点就是在主线程减少耗时操作。通常需要从那个以下几个方案下手：<br>
     a）使用子线程处理耗时IO操作<br>
     b）降低子线程优先级，使用Thread或者HandlerThread时，调用Process.setThreadPriority（Process.THREAD_PRIORITY_BACKGROUND）设置优先级，否则仍然会降低程序响应，因为默认Thread的优先级和主线程相同<br>
