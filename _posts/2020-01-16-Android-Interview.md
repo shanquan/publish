@@ -335,8 +335,8 @@ tags: [byd]
             }
         }
         a[i] = key;
-        quickSort(a, l, i-1);
-        quickSort(a, i+1, r);
+        SortD(a, l, i-1);
+        SortD(a, i+1, r);
     }
    ```
 5. Android四大组件包括以下哪些？（多选）
