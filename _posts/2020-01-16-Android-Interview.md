@@ -1,6 +1,7 @@
 ---
 layout: pagelt
 title: Android Interview
+published: false
 tags: [byd]
 ---
 ## Process
